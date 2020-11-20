@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Rheal_MVP_App.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductManufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryRowId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductManufacturer)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CategoryRowId)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ProductRowId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ProductRowId })
+    </td>
+</tr>
+}
+
+</table>
